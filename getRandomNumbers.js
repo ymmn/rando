@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const BASE_URL = 'https://www.random.org/integers/'
-const MAX_RESULTS_PER_CALL = 10
+const MAX_RESULTS_PER_CALL = 10000
 
 
 /**
