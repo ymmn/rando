@@ -2,15 +2,22 @@ import bmp from 'bmp-js'
 import fs from 'fs'
 
 
-export default function createBmp(randomNumbers, filename) {
-  if (randomNumbers.length !== (128 * 128 * 4)) {
+/**
+ * Requires 3 options:
+ * - height
+ * - width
+ * - rgbaValues - an array of integers between 0 - 255 where each entry represents a byte
+ */
+export default function createBmp(filename, options) {
+  const { height, width, rgbaValues } = options
+  if (rgbaValues.length !== (height * width * 4)) {
     throw new Error('Unexpected array length')
   }
 
-  const dataBuffer = new Buffer(randomNumbers)
+  const dataBuffer = new Buffer(rgbaValues)
   const bmpData = {
-    width: 128,
-    height: 128,
+    width,
+    height,
     data: dataBuffer,
   }
   const encoded = bmp.encode(bmpData)
