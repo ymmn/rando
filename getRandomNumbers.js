@@ -46,3 +46,15 @@ export default function getRandomNumbers(options = {}) {
     })
   })
 }
+
+/**
+ * for testing purposes
+ */
+export function getPsuedoRandomNumbers(options = {}) {
+  const randomNumbers = []
+  for (var i = 0; i < options.count; i++) {
+    const range = options.max - options.min
+    randomNumbers.push(options.min + Math.round(Math.random() * range))
+  }
+  return new Promise((resolve) => resolve(randomNumbers))
+}
