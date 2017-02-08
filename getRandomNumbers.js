@@ -10,7 +10,7 @@ const MAX_RESULTS_PER_CALL = 10000
  * - max
  * - count
  */
-export default function getRandomNumbers(options = {}) {
+export default function getRandomNumbers(options) {
   let count = options.count
   let resultsPromise = new Promise((resolve) => resolve([]))
 
@@ -50,7 +50,7 @@ export default function getRandomNumbers(options = {}) {
 /**
  * for testing purposes
  */
-export function getPsuedoRandomNumbers(options = {}) {
+export function getPsuedoRandomNumbers(options) {
   const randomNumbers = []
   for (var i = 0; i < options.count; i++) {
     const range = options.max - options.min
